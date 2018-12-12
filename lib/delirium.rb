@@ -1,6 +1,7 @@
-require "delirium/version"
-
 module Delirium
   class Error < StandardError; end
-  # Your code goes here...
 end
+
+require_relative "delirium/version"
+require_relative "delirium/helpers"
+require_relative "delirium/driver"
