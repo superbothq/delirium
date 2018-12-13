@@ -2,20 +2,29 @@ module Delirium
   module Driver
     class Linux
       class Keyboard < Base::Keyboard
-        def key_press(string_or_symbol)
-          `xdotool`
+        def key_press(key:)
+          case key
+          when Symbol
+            `xdotool type '#{key}'`
+          end
         end
 
-        def key_down(string_or_symbol)
-          `xdotool`
+        def key_down(key:)
+          case key
+          when Symbol
+            `xdotool keydown '#{key}'`
+          end
         end
 
-        def key_up(string_or_symbol)
-          `xdotool`
+        def key_up(key:)
+          case key
+          when Symbol
+            `xdotool keyup '#{key}'`
+          end
         end
 
-        def write(string)
-          `xdotool`
+        def write(string:)
+          `xdotool type '#{string}'`
         end
       end
     end

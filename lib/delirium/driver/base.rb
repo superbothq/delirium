@@ -7,6 +7,7 @@ module Delirium
       end
 
       def do(device:, action:, params:)
+        Jaguar.debug "driver#do", "device", device, "action", action, "params", params
         case device
         when :mouse
           @mouse.send action, params
@@ -15,6 +16,7 @@ module Delirium
         else
           raise Delirium::Error, "unknown device: #{device}"
         end
+        nil
       end
     end
   end

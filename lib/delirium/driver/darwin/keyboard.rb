@@ -2,24 +2,34 @@ module Delirium
   module Driver
     class Darwin
       class Keyboard < Base::Keyboard
-        def key_press(string_or_symbol)
-          case string_or_symbol
+        def key_press(key:)
+          case key
           when String
-            `cliclick t:#{string_or_symbol}`
+            `cliclick t:#{key}`
           when Symbol
-            `cliclick kp:#{string_or_symbol}`
+            cliclick_key = case key
+            when :cmd
+            when :volume_up
+              "volume-up"
+            when :volume_down
+              "volume-down"
+            else
+              key
+            end
+
+            `cliclick kp:#{cliclick_key}` if cliclick_key
           end
         end
 
-        def key_down(string_or_symbol)
-          `cliclick kd:#{string_or_symbol}`
+        def key_down(key:)
+          `cliclick kd:#{key}`
         end
 
-        def key_up(string_or_symbol)
-          `cliclick ku:#{string_or_symbol}`
+        def key_up(key:)
+          `cliclick ku:#{key}`
         end
 
-        def write(string)
+        def write(string:)
           `cliclick t:#{string}`
         end
       end
