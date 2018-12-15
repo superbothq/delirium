@@ -1,9 +1,9 @@
 module Delirium
-  module Driver
-    class Linux
+  module Platform
+    class Darwin
       class Mouse < Base::Mouse
         def move(params)
-          `xdotool`
+          `cliclick m:+#{params[:x]},+#{params[:y]}`
         end
       end
     end

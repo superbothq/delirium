@@ -1,14 +1,13 @@
 module Delirium
-  module Driver
+  module Platform
     def self.class_for_current_platform
       case RUBY_PLATFORM.downcase
       when /darwin/
-        Delirium::Driver::Darwin
+        Delirium::Platform::Darwin
       when /linux/
-        Delirium::Driver::Linux
-      else
+        Delirium::Platform::Linux
       when /cygwin|mswin|mingw|bccwin|wince|emx/
-        Delirium::Driver::Windows
+        Delirium::Platform::Windows
       else
         raise Delirium::Error, "Unsupported Platform: #{platform}"
       end
@@ -16,7 +15,7 @@ module Delirium
   end
 end
 
-require_relative "driver/base"
-require_relative "driver/darwin"
-require_relative "driver/linux"
-require_relative "driver/windows"
+require_relative "platform/base"
+require_relative "platform/darwin"
+require_relative "platform/linux"
+require_relative "platform/windows"

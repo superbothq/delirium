@@ -3,4 +3,4 @@ module Delirium
 end
 
 require_relative "delirium/version"
-require_relative "delirium/driver"
+require_relative "delirium/platform"

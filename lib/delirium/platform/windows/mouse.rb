@@ -1,9 +1,9 @@
 module Delirium
-  module Driver
-    class Darwin
+  module Platform
+    class Windows
       class Mouse < Base::Mouse
         def move(params)
-          `cliclick m:+#{params[:x]},+#{params[:y]}`
+          `nircmd.exe sendmouse #{params}`
         end
       end
     end

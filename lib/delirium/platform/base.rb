@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Base
       def initialize
         @mouse = eval "#{self.class.name}::Mouse.new"
@@ -7,7 +7,6 @@ module Delirium
       end
 
       def do(device:, action:, params:)
-        Jaguar.debug "driver#do", "device", device, "action", action, "params", params
         case device
         when :mouse
           @mouse.send action, params

@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Base
       class Mouse
         def move(params)

@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Windows
       class Keyboard < Base::Keyboard
         def key_press(key:)

@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Linux < Base
     end
   end

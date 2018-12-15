@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Darwin
       class Keyboard < Base::Keyboard
         def key_press(key:)

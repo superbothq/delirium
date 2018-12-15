@@ -1,9 +1,9 @@
 module Delirium
-  module Driver
-    class Windows
+  module Platform
+    class Linux
       class Mouse < Base::Mouse
         def move(params)
-          `nircmd.exe sendmouse #{params}`
+          `xdotool`
         end
       end
     end

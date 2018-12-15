@@ -1,5 +1,5 @@
 module Delirium
-  module Driver
+  module Platform
     class Base
       class Keyboard
         def key_press(string_or_symbol)
