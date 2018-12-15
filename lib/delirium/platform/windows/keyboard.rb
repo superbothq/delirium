@@ -2,6 +2,12 @@ module Delirium
   module Platform
     class Windows
       class Keyboard < Base::Keyboard
+        def write(string:)
+          string.split("").each do |c|
+            `nircmd.exe sendkey #{c} press`
+          end
+        end
+
         def key_press(key:)
           case key
           when Symbol
