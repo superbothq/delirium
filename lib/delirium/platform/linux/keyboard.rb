@@ -3,24 +3,15 @@ module Delirium
     class Linux
       class Keyboard < Base::Keyboard
         def key_press(key:)
-          case key
-          when Symbol
-            `xdotool type '#{key}'`
-          end
+          `xdotool type '#{key}'`
         end
 
         def key_down(key:)
-          case key
-          when Symbol
-            `xdotool keydown '#{key}'`
-          end
+          `xdotool keydown '#{key}'`
         end
 
         def key_up(key:)
-          case key
-          when Symbol
-            `xdotool keyup '#{key}'`
-          end
+          `xdotool keyup '#{key}'`
         end
 
         def write(string:)
